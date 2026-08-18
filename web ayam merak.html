@@ -1,0 +1,1944 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ayam Merak — Rasa enak untuk Acara Anda</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;0,9..144,900;1,9..144,500;1,9..144,600&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap"
+    rel="stylesheet">
+  <style>
+    :root {
+      --hijau-tua: #163425;
+      --hijau-gelap: #0d2019;
+      --emas: #dda63a;
+      --emas-terang: #eec877;
+      --cabai: #b8452e;
+      --gading: #faf3e2;
+      --gading-redup: #f0e6cc;
+      --arang: #221c14;
+      --arang-lembut: #4d4638;
+      --garis: rgba(34, 28, 20, 0.12);
+      --bayang: 0 12px 30px rgba(13, 32, 25, 0.14);
+      --radius: 4px;
+      --lebar-maks: 1180px;
+      --display: 'Fraunces', serif;
+      --tubuh: 'Plus Jakarta Sans', sans-serif;
+      --mono: 'JetBrains Mono', monospace;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: var(--tubuh);
+      color: var(--arang);
+      background: var(--gading);
+      line-height: 1.6;
+    }
+
+    img,
+    svg {
+      max-width: 100%;
+      display: block;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    .wadah {
+      max-width: var(--lebar-maks);
+      margin: 0 auto;
+      padding: 0 28px;
+    }
+
+    .eyebrow {
+      font-family: var(--mono);
+      font-size: 0.72rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--cabai);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 14px;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 26px;
+      height: 1px;
+      background: var(--cabai);
+      display: inline-block;
+    }
+
+    h1,
+    h2,
+    h3 {
+      font-family: var(--display);
+      margin: 0;
+      color: var(--hijau-tua);
+    }
+
+    h2 {
+      font-size: clamp(1.8rem, 3.2vw, 2.6rem);
+      font-weight: 600;
+    }
+
+    .aksen-miring {
+      font-style: italic;
+      color: var(--emas);
+      font-weight: 500;
+    }
+
+    section {
+      padding: 88px 0;
+    }
+
+    .btn {
+      font-family: var(--tubuh);
+      font-weight: 600;
+      font-size: 0.95rem;
+      padding: 15px 28px;
+      border-radius: var(--radius);
+      border: none;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      transition: transform .18s ease, box-shadow .18s ease, background .18s ease;
+    }
+
+    .btn:focus-visible {
+      outline: 3px solid var(--emas);
+      outline-offset: 3px;
+    }
+
+    .btn-utama {
+      background: var(--cabai);
+      color: #fff;
+    }
+
+    .btn-utama:hover {
+      background: #9c3a25;
+      transform: translateY(-2px);
+      box-shadow: var(--bayang);
+    }
+
+    .btn-luar {
+      background: transparent;
+      color: var(--gading);
+      border: 1.5px solid rgba(250, 243, 226, 0.5);
+    }
+
+    .btn-luar:hover {
+      border-color: var(--emas);
+      color: var(--emas-terang);
+      transform: translateY(-2px);
+    }
+
+    .btn-luar.gelap {
+      color: var(--hijau-tua);
+      border-color: rgba(22, 52, 37, 0.35);
+    }
+
+    .btn-luar.gelap:hover {
+      border-color: var(--cabai);
+      color: var(--cabai);
+    }
+
+    /* ---------- NAVBAR ---------- */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(250, 243, 226, 0.92);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--garis);
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px 28px;
+      max-width: var(--lebar-maks);
+      margin: 0 auto;
+    }
+
+    .logo {
+      color: var(--hijau-tua);
+      text-decoration: none;
+      font-size: 1.5rem;
+      font-weight: 700;
+
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .logo-img {
+      width: 45px;
+      height: 45px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+
+    .logo .titik {
+      color: var(--cabai);
+    }
+
+    .nav-tautan {
+      display: flex;
+      gap: 34px;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .nav-tautan a {
+      text-decoration: none;
+      font-size: 0.94rem;
+      font-weight: 500;
+      color: var(--arang-lembut);
+      position: relative;
+      padding: 4px 0;
+    }
+
+    .nav-tautan a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -2px;
+      height: 2px;
+      width: 0;
+      background: var(--cabai);
+      transition: width .2s ease;
+    }
+
+    .nav-tautan a:hover::after {
+      width: 100%;
+    }
+
+    .nav-aksi {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .nav-aksi .btn-utama {
+      padding: 11px 20px;
+      font-size: 0.88rem;
+    }
+
+    .hamburger {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 6px;
+    }
+
+    .hamburger span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: var(--hijau-tua);
+      margin: 5px 0;
+    }
+
+    /* ---------- HERO ---------- */
+    .hero {
+      background: var(--hijau-tua);
+      color: var(--gading);
+      padding: 100px 0 70px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 50px;
+      align-items: center;
+    }
+
+    .hero h1 {
+      color: var(--gading);
+      font-size: clamp(2.6rem, 5vw, 4rem);
+      font-weight: 600;
+      line-height: 1.08;
+      letter-spacing: -0.01em;
+    }
+
+    .hero p.sub {
+      margin-top: 22px;
+      max-width: 480px;
+      font-size: 1.08rem;
+      color: rgba(250, 243, 226, 0.78);
+    }
+
+    .hero-aksi {
+      display: flex;
+      gap: 16px;
+      margin-top: 36px;
+      flex-wrap: wrap;
+    }
+
+    .hero-stat {
+      display: flex;
+      gap: 34px;
+      margin-top: 56px;
+      flex-wrap: wrap;
+    }
+
+    .hero-stat div strong {
+      display: block;
+      font-family: var(--mono);
+      font-size: 1.6rem;
+      color: var(--emas-terang);
+    }
+
+    .hero-stat div span {
+      font-size: 0.82rem;
+      color: rgba(250, 243, 226, 0.6);
+    }
+
+    .hero-visual {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 500px;
+    }
+
+    .hero-card {
+      position: absolute;
+      width: 340px;
+      height: 430px;
+      overflow: hidden;
+      border-radius: 28px;
+
+      background: #fff;
+
+      border: 8px solid #d9b15d;
+
+      box-shadow:
+        0 20px 45px rgba(0, 0, 0, .25);
+
+      transition: .4s;
+    }
+
+    .hero-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
+
+    .hero-card-back {
+      position: absolute;
+      width: 320px;
+      height: 420px;
+
+      left: -10px;
+      top: 70px;
+
+      transform: rotate(-12deg);
+
+      z-index: 1;
+      opacity: .9;
+
+    }
+
+    .hero-card-front {
+      position: absolute;
+      width: 340px;
+      height: 440px;
+
+      right: 10px;
+      top: 0;
+
+      transform: rotate(8deg);
+      z-index: 2;
+    }
+
+    .hero-visual:hover .hero-card-front {
+
+      transform:
+        rotate(0deg) translateY(-12px);
+
+    }
+
+    .hero-visual:hover .hero-card-back {
+
+      transform:
+        rotate(0deg) translateY(12px);
+
+    }
+
+    .hero-visual::before {
+
+      content: "";
+
+      position: absolute;
+
+      width: 420px;
+
+      height: 420px;
+
+      background: rgba(214, 177, 93, .18);
+
+      border-radius: 50%;
+
+      filter: blur(40px);
+
+      z-index: -1;
+
+    }
+
+    .hero-card-front {
+      animation: melayang 4s ease-in-out infinite;
+    }
+
+    .hero-card-back {
+      animation: melayang 4s ease-in-out infinite;
+      animation-delay: 1s;
+    }
+
+    .hero-stat strong {
+      display: block;
+      font-size: 2rem;
+      color: var(--emas);
+      margin-bottom: 12px;
+    }
+
+    .hero-stat span {
+      line-height: 1.5;
+      font-size: .9rem;
+    }
+
+    @keyframes melayang {
+
+      0%,
+      100% {
+        transform: translateY(0) rotate(8deg);
+      }
+
+      50% {
+        transform: translateY(-12px) rotate(8deg);
+      }
+    }
+
+
+    /* ---------- TENTANG ---------- */
+    .tentang {
+      background: var(--gading);
+    }
+
+    .tentang-grid {
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 60px;
+      align-items: center;
+    }
+
+    .tentang-teks p {
+      color: var(--arang-lembut);
+      font-size: 1.02rem;
+      max-width: 540px;
+    }
+
+    .nilai-list {
+      list-style: none;
+      padding: 0;
+      margin: 28px 0 0;
+      display: grid;
+      gap: 18px;
+    }
+
+    .nilai-list li {
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+    }
+
+    .nilai-list .no {
+      font-family: var(--mono);
+      color: var(--cabai);
+      font-weight: 700;
+      font-size: 0.85rem;
+      min-width: 26px;
+    }
+
+    .nilai-list strong {
+      display: block;
+      color: var(--hijau-tua);
+      font-family: var(--display);
+      font-weight: 600;
+    }
+
+    .nilai-list span {
+      color: var(--arang-lembut);
+      font-size: 0.92rem;
+    }
+
+    .foto-blok {
+      aspect-ratio: 4/5;
+      border-radius: var(--radius);
+      position: relative;
+      overflow: hidden;
+      box-shadow: var(--bayang);
+    }
+
+    .foto-blok img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    /* ---------- MENU PAKET ---------- */
+    .menu {
+      background: var(--gading-redup);
+    }
+
+    .menu-kepala {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      gap: 20px;
+      flex-wrap: wrap;
+      margin-bottom: 44px;
+    }
+
+    .menu-kepala p {
+      color: var(--arang-lembut);
+      max-width: 420px;
+    }
+
+    .kartu-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 22px;
+    }
+
+    .kartu-paket {
+      background: #fff;
+      border: 1px solid var(--garis);
+      border-radius: var(--radius);
+      padding: 30px 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      transition: transform .2s ease, box-shadow .2s ease;
+    }
+
+    .kartu-paket:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--bayang);
+    }
+
+    .kartu-paket .tag {
+      font-family: var(--mono);
+      font-size: 0.68rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--emas);
+      background: rgba(221, 166, 58, 0.12);
+      width: fit-content;
+      padding: 4px 10px;
+      border-radius: 20px;
+    }
+
+    .kartu-paket h3 {
+      font-size: 1.24rem;
+    }
+
+    .kartu-paket .harga {
+      font-family: var(--mono);
+      font-size: 1.4rem;
+      color: var(--cabai);
+      font-weight: 700;
+    }
+
+    .kartu-paket .harga span {
+      font-size: 0.7rem;
+      color: var(--arang-lembut);
+      font-family: var(--tubuh);
+      font-weight: 500;
+    }
+
+    .kartu-paket ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: grid;
+      gap: 8px;
+      flex-grow: 1;
+    }
+
+    .kartu-paket ul li {
+      font-size: 0.88rem;
+      color: var(--arang-lembut);
+      padding-left: 16px;
+      position: relative;
+    }
+
+    .kartu-paket ul li::before {
+      content: "—";
+      position: absolute;
+      left: 0;
+      color: var(--emas);
+    }
+
+    .kartu-paket .btn {
+      margin-top: 8px;
+      width: 100%;
+      justify-content: center;
+      background: var(--hijau-tua);
+      color: #fff;
+      font-size: 0.85rem;
+      padding: 12px;
+    }
+
+    .kartu-paket .btn:hover {
+      background: var(--cabai);
+    }
+
+    /* ---------- KALKULATOR / STRUK ---------- */
+    .kalkulator {
+      background: var(--hijau-tua);
+      color: var(--gading);
+    }
+
+    .kalkulator .eyebrow {
+      color: var(--emas-terang);
+    }
+
+    .kalkulator .eyebrow::before {
+      background: var(--emas-terang);
+    }
+
+    .kalkulator h2 {
+      color: var(--gading);
+    }
+
+    .kal-grid {
+      display: grid;
+      grid-template-columns: 1fr 0.85fr;
+      gap: 44px;
+      align-items: start;
+      margin-top: 40px;
+    }
+
+    .kal-form {
+      display: grid;
+      gap: 18px;
+    }
+
+    .field {
+      display: grid;
+      gap: 8px;
+    }
+
+    .field label {
+      font-size: 0.85rem;
+      color: rgba(250, 243, 226, 0.75);
+      font-weight: 600;
+    }
+
+    .field select,
+    .field input {
+      font-family: var(--tubuh);
+      font-size: 0.98rem;
+      padding: 13px 14px;
+      border-radius: var(--radius);
+      border: 1px solid rgba(250, 243, 226, 0.25);
+      background: rgba(250, 243, 226, 0.06);
+      color: var(--gading);
+    }
+
+    .field select option {
+      color: var(--arang);
+    }
+
+    .field-baris {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 14px;
+    }
+
+    #tambahBtn {
+      width: 100%;
+      justify-content: center;
+      background: var(--emas);
+      color: var(--arang);
+      font-weight: 700;
+    }
+
+    #tambahBtn:hover {
+      background: var(--emas-terang);
+    }
+
+    .struk {
+      background: var(--gading);
+      color: var(--arang);
+      padding: 30px 26px;
+      border-radius: 2px;
+      font-family: var(--mono);
+      box-shadow: var(--bayang);
+      position: relative;
+    }
+
+    .struk::before,
+    .struk::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      height: 10px;
+      background: repeating-linear-gradient(90deg, var(--gading) 0 8px, transparent 8px 16px);
+    }
+
+    .struk::before {
+      top: -5px;
+      background-color: var(--hijau-tua);
+      mix-blend-mode: normal;
+    }
+
+    .struk::after {
+      bottom: -5px;
+      background-color: var(--hijau-tua);
+    }
+
+    .struk-judul {
+      text-align: center;
+      font-weight: 700;
+      font-size: 0.95rem;
+      letter-spacing: 0.05em;
+    }
+
+    .struk-sub {
+      text-align: center;
+      font-size: 0.68rem;
+      color: var(--arang-lembut);
+      margin-top: 4px;
+    }
+
+    .struk-garis {
+      border-top: 1px dashed var(--garis);
+      margin: 16px 0;
+    }
+
+    #strukList {
+      display: grid;
+      gap: 10px;
+      min-height: 40px;
+    }
+
+    .struk-item {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.82rem;
+      gap: 10px;
+    }
+
+    .struk-item .hapus {
+      background: none;
+      border: none;
+      color: var(--cabai);
+      cursor: pointer;
+      font-size: 0.75rem;
+      text-decoration: underline;
+      padding: 0;
+    }
+
+    .struk-kosong {
+      font-size: 0.8rem;
+      color: var(--arang-lembut);
+      text-align: center;
+      padding: 10px 0;
+    }
+
+    .struk-total {
+      display: flex;
+      justify-content: space-between;
+      font-weight: 700;
+      font-size: 1.05rem;
+      margin-top: 14px;
+      color: var(--hijau-tua);
+    }
+
+    #waBtn {
+      width: 100%;
+      justify-content: center;
+      margin-top: 18px;
+      background: #25d366;
+      color: #0d2019;
+      font-weight: 700;
+    }
+
+    #waBtn:hover {
+      background: #1fb757;
+    }
+
+    #waBtn:disabled {
+      opacity: 0.45;
+      cursor: not-allowed;
+    }
+
+    /* ---------- TESTIMONI ---------- */
+    .testimoni {
+      background: var(--gading);
+    }
+
+    .testi-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+      margin-top: 40px;
+    }
+
+    .testi-kartu {
+      background: #fff;
+      border: 1px solid var(--garis);
+      border-radius: var(--radius);
+      padding: 28px 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .testi-kartu .bintang {
+      color: var(--emas);
+      letter-spacing: 2px;
+    }
+
+    .testi-kartu p {
+      font-size: 0.95rem;
+      color: var(--arang-lembut);
+      font-style: italic;
+      flex-grow: 1;
+    }
+
+    .testi-siapa {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .avatar {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      background: var(--hijau-tua);
+      color: var(--emas-terang);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--display);
+      font-weight: 600;
+    }
+
+    .testi-siapa strong {
+      display: block;
+      font-size: 0.9rem;
+      color: var(--hijau-tua);
+    }
+
+    .testi-siapa span {
+      font-size: 0.78rem;
+      color: var(--arang-lembut);
+    }
+
+    /* ---------- GALERI ---------- */
+    .why {
+      background: var(--gading-redup);
+    }
+
+    .why-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      margin-top: 40px;
+    }
+
+    /* ---------- KONTAK ---------- */
+    .kontak {
+      background: var(--hijau-gelap);
+      color: var(--gading);
+    }
+
+    .kontak .eyebrow {
+      color: var(--emas-terang);
+    }
+
+    .kontak .eyebrow::before {
+      background: var(--emas-terang);
+    }
+
+    .kontak h2 {
+      color: var(--gading);
+    }
+
+    .kontak-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      margin-top: 40px;
+    }
+
+    .kontak-info p {
+      color: rgba(250, 243, 226, 0.75);
+      max-width: 420px;
+    }
+
+    .info-list {
+      list-style: none;
+      padding: 0;
+      margin: 26px 0 0;
+      display: grid;
+      gap: 14px;
+    }
+
+    .info-list li {
+      display: flex;
+      gap: 12px;
+      font-size: 0.95rem;
+    }
+
+    .info-list .ikon {
+      color: var(--emas-terang);
+      font-family: var(--mono);
+    }
+
+    .form-kontak {
+      display: grid;
+      gap: 14px;
+    }
+
+    .form-kontak input,
+    .form-kontak textarea {
+      font-family: var(--tubuh);
+      padding: 13px 14px;
+      border-radius: var(--radius);
+      border: 1px solid rgba(250, 243, 226, 0.25);
+      background: rgba(250, 243, 226, 0.06);
+      color: var(--gading);
+      font-size: 0.95rem;
+    }
+
+    .form-kontak textarea {
+      min-height: 110px;
+      resize: vertical;
+    }
+
+    .form-kontak ::placeholder {
+      color: rgba(250, 243, 226, 0.4);
+    }
+
+    footer {
+      background: var(--hijau-gelap);
+      border-top: 1px solid rgba(250, 243, 226, 0.1);
+      padding: 26px 0;
+    }
+
+    .footer-baris {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .footer-baris p {
+      margin: 0;
+      font-size: 0.82rem;
+      color: rgba(250, 243, 226, 0.55);
+    }
+
+    @media (max-width: 900px) {
+
+      .hero-grid,
+      .tentang-grid,
+      .kal-grid,
+      .kontak-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-visual {
+        order: -1;
+        max-width: 260px;
+        margin: 0 auto;
+      }
+
+      .kartu-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .testi-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .galeri-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .nav-tautan {
+        display: none;
+      }
+
+      .hamburger {
+        display: block;
+      }
+    }
+
+    @media (max-width: 520px) {
+      .kartu-grid {
+        grid-template-columns: 1fr;
+      }
+
+      section {
+        padding: 60px 0;
+      }
+
+      .field-baris {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /*==================================
+        MITRA KAMI
+===================================*/
+
+    .mitra {
+      background: var(--gading);
+    }
+
+    .mitra .eyebrow {
+      justify-content: center;
+    }
+
+    .mitra h2 {
+      margin-bottom: 25px;
+      text-align: center;
+    }
+
+    .mitra-deskripsi {
+      max-width: 700px;
+      margin: 20px auto 0;
+      text-align: center;
+      color: var(--arang-lembut);
+      line-height: 1.8;
+    }
+
+    .mitra-grid {
+      display: flex;
+      justify-content: center;
+      gap: 35px;
+      flex-wrap: wrap;
+      margin-top: 55px;
+    }
+
+    .mitra-item {
+      width: 360px;
+      background: #fff;
+      border-radius: 16px;
+      padding: 35px;
+      text-align: center;
+      border: 1px solid rgba(0, 0, 0, .06);
+      box-shadow: 0 12px 35px rgba(0, 0, 0, .08);
+      transition: all .35s ease;
+    }
+
+    .mitra-item:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 20px 45px rgba(0, 0, 0, .15);
+    }
+
+    .mitra-item img {
+      width: 190px;
+      height: 90px;
+      object-fit: contain;
+      margin: 0 auto 25px;
+      filter: grayscale(100%);
+      transition: .35s;
+    }
+
+    .mitra-item:hover img {
+      filter: none;
+      transform: scale(1.05);
+    }
+
+    .mitra-item h3 {
+      font-family: var(--display);
+      color: var(--hijau-tua);
+      font-size: 1.2rem;
+      margin-bottom: 10px;
+    }
+
+    .mitra-item img {
+      margin-bottom: 20px;
+    }
+
+    .mitra-item h3::before {
+
+      content: "";
+
+      display: block;
+
+      width: 55px;
+
+      height: 3px;
+
+      background: #d4af37;
+
+      margin: 0 auto 18px;
+
+    }
+
+    .mitra-item span {
+      display: block;
+      color: var(--cabai);
+      font-weight: 600;
+      font-size: .9rem;
+      margin-bottom: 18px;
+    }
+
+    .mitra-item p {
+      color: var(--arang-lembut);
+      font-size: .95rem;
+      line-height: 1.7;
+    }
+
+    @media(max-width:768px) {
+
+      .mitra-grid {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .mitra-item {
+        width: 100%;
+        max-width: 380px;
+      }
+    }
+
+    /* FAQ */
+
+    .faq {
+      padding: 100px 0;
+      background: var(--gading-redup);
+    }
+
+    .faq h2,
+    .faq .sub {
+      text-align: center;
+    }
+
+    .faq .sub {
+      max-width: 700px;
+      margin: 20px auto 60px;
+      color: #666;
+    }
+
+    .faq-list {
+      max-width: 900px;
+      margin: auto;
+    }
+
+    .faq-item {
+
+      border: 1px solid #e5e5e5;
+
+      border-radius: 15px;
+
+      margin-bottom: 18px;
+
+      overflow: hidden;
+
+      background: #fff;
+
+      transition: .3s;
+    }
+
+    .faq-item:hover {
+
+      box-shadow: 0 10px 30px rgba(0, 0, 0, .08);
+
+    }
+
+    .faq-question {
+
+      width: 100%;
+
+      background: none;
+
+      border: none;
+
+      cursor: pointer;
+
+      padding: 24px 30px;
+
+      display: flex;
+
+      justify-content: space-between;
+
+      align-items: center;
+
+      font-size: 1.05rem;
+
+      font-weight: 600;
+
+      color: var(--hijau-tua);
+    }
+
+    .faq-question span {
+
+      font-size: 1.5rem;
+
+      color: var(--emas);
+
+    }
+
+    .faq-answer {
+
+      max-height: 0;
+
+      overflow: hidden;
+
+      transition: .35s ease;
+
+    }
+
+    .faq-answer p {
+
+      padding: 0 30px 24px;
+
+      color: #666;
+
+      line-height: 1.8;
+
+    }
+
+    
+
+    /* kontak */
+    .kontak {
+      width: 100%;
+      max-width: none !important;
+      margin: 0;
+    }
+
+    .kontak .wadah {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+
+
+    /* whyteks pengganti galery */
+    .why-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 25px;
+      margin-top: 50px;
+    }
+
+    .why-card {
+      background: #fff;
+      padding: 35px 30px;
+      border-radius: 18px;
+      text-align: center;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, .08);
+      transition: .3s;
+      border: 1px solid #eee;
+    }
+
+    .why-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 18px 40px rgba(0, 0, 0, .12);
+    }
+
+    .why-icon {
+      width: 80px;
+      height: 80px;
+
+      margin: 0 auto 20px;
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      background: linear-gradient(135deg, #2f6b3f, #4d9b62);
+
+      color: #fff;
+
+      border-radius: 50%;
+
+      font-size: 2rem;
+
+      box-shadow: 0 10px 25px rgba(47, 107, 63, .25);
+
+      transition: .3s;
+    }
+
+    .why-card:hover .why-icon {
+
+      transform: rotate(8deg) scale(1.1);
+
+      background: linear-gradient(135deg, #d6b25e, #c69a34);
+
+    }
+
+    .why-card h3 {
+      color: var(--hijau-tua);
+      margin-bottom: 12px;
+    }
+
+    .why-card p {
+      color: #666;
+      line-height: 1.7;
+    }
+  </style>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+</head>
+
+<body>
+
+  <header>
+    <nav class="nav">
+      <a href="#beranda" class="logo">
+        <img src="amb.png" alt="Logo Ayam Merak" class="logo-img">
+        Ayam Merak <span class="titik">.</span></a>
+      <ul class="nav-tautan">
+        <li><a href="#tentang">Tentang</a></li>
+        <li><a href="#menu">Paket Menu</a></li>
+        <li><a href="#kalkulator">Kalkulator</a></li>
+        <li><a href="#mitra">Mitra Kami</a></li>
+        <li><a href="#kontak">Kontak</a></li>
+      </ul>
+      <div class="nav-aksi">
+        <a href="#kalkulator" class="btn btn-utama">Pesan Sekarang</a>
+        <button class="hamburger" id="hamburger" aria-label="Buka menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+
+    <!-- HERO -->
+    <section class="hero" id="beranda">
+      <div class="wadah hero-grid">
+        <div>
+          <p class="eyebrow">Catering Sejak 2024</p>
+          <h1>Catering berkualitas,<br><span class="aksen-miring">untuk perusahaan</span> dan acara anda.</h1>
+          <p class="sub">Ayam Merak menyediakan layanan catering untuk perusahaan,
+            instansi, sekolah, dan berbagai acara dengan
+            menu berkualitas, pengiriman tepat waktu, serta pelayanan
+            profesional.</p>
+          <div class="hero-aksi">
+            <a href="#kalkulator" class="btn btn-utama">📋 Minta Penawaran</a>
+            <a href="#menu" class="btn btn-luar">🍽 Lihat Paket Menu</a>
+          </div>
+          <div class="hero-stat">
+
+            <div>
+              <strong><i class="fas fa-building"></i></strong>
+              <span>Corporate<br>Catering</span>
+            </div>
+
+            <div>
+              <strong><i class="fas fa-utensils"></i></strong>
+              <span>Custom<br>Menu</span>
+            </div>
+
+            <div>
+              <strong><i class="fas fa-shield-heart"></i></strong>
+              <span>Quality<br>Service</span>
+            </div>
+
+          </div>
+        </div>
+        <div class="hero-visual">
+
+          <div class="hero-card hero-card-front">
+            <img src="prasmanan.jpg" alt="Nasi Box">
+          </div>
+
+          <div class="hero-card hero-card-back">
+            <img src="ayambkr.jpg" alt="Ayam Bakar">
+          </div>
+
+        </div>
+
+      </div>
+      </div>
+    </section>
+
+    <!-- MENGAPA MEMILIH KAMI -->
+    <section class="why" id="keunggulan">
+
+      <div class="wadah">
+
+        <p class="eyebrow">KEUNGGULAN KAMI</p>
+
+        <h2>
+          Mengapa Memilih
+          <span class="aksen-miring">Ayam Merak?</span>
+        </h2>
+
+        <p class="sub">
+          Kami berkomitmen menghadirkan layanan catering yang lezat,
+          higienis, tepat waktu, dan didukung oleh tim profesional
+          sehingga setiap acara berjalan dengan sempurna.
+        </p>
+
+        <div class="why-grid">
+
+          <!-- CARD 1 -->
+          <div class="why-card">
+            <div class="why-icon">
+              <i class="fas fa-utensils"></i>
+            </div>
+            <h3>Menu Beragam</h3>
+            <p>Pilihan menu yang dapat disesuaikan dengan kebutuhan perusahaan, acara keluarga maupun instansi.</p>
+          </div>
+
+          <!-- CARD 2 -->
+          <div class="why-card">
+            <div class="why-icon">
+              <i class="fas fa-shield-heart"></i>
+            </div>
+            <h3>Higienis & Berkualitas</h3>
+            <p>Diproduksi dengan standar kebersihan tinggi menggunakan bahan baku pilihan.</p>
+          </div>
+
+          <!-- CARD 3 -->
+          <div class="why-card">
+            <div class="why-icon">
+              <i class="fas fa-clock"></i>
+            </div>
+            <h3>Tepat Waktu</h3>
+            <p>Kami memahami pentingnya ketepatan waktu dalam setiap pengiriman pesanan.</p>
+          </div>
+
+          <!-- CARD 4 -->
+          <div class="why-card">
+            <div class="why-icon">
+              <i class="fas fa-user-tie"></i>
+            </div>
+            <h3>Tim Berpengalaman</h3>
+            <p>Didukung oleh tim dapur dan pelayanan yang berpengalaman.</p>
+          </div>
+
+          <!-- CARD 5 -->
+          <div class="why-card">
+            <div class="why-icon">
+              <i class="fas fa-building"></i>
+            </div>
+            <h3>Melayani Perusahaan</h3>
+            <p>Dipercaya melayani kebutuhan catering perusahaan, instansi, dan berbagai acara.</p>
+          </div>
+
+          <!-- CARD 6 -->
+          <div class="why-card">
+            <div class="why-icon">
+              <i class="fas fa-headset"></i>
+            </div>
+            <h3>Konsultasi Gratis</h3>
+            <p>Tim kami siap membantu memilih menu sesuai kebutuhan dan anggaran Anda.</p>
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- TENTANG -->
+
+    <section class="tentang" id="tentang">
+      <div class="wadah tentang-grid">
+        <div class="foto-blok">
+          <img src="amb.png" alt="Dapur Ayam Merak">
+        </div>
+        <div class="tentang-teks">
+          <p class="eyebrow">Tentang Kami</p>
+          <h2>
+        Partner Catering Terpercaya
+        <span class="aksen-miring">untuk perusahaan dan berbagai acara.</span>
+      </h2>
+
+      <p>
+        <strong>Ayam Merak Bersama</strong> merupakan perusahaan catering yang
+        resmi berdiri pada tahun <strong>2024</strong>. Kami menyediakan layanan
+        catering untuk perusahaan, instansi, sekolah, hingga berbagai acara
+        keluarga dengan mengutamakan kualitas rasa, kebersihan, dan pelayanan
+        yang profesional.
+      </p>
+
+      <p>
+        Didukung oleh tim yang berpengalaman, kami berkomitmen menghadirkan
+        makanan yang lezat, higienis, serta dikirim tepat waktu sehingga setiap
+        pelanggan mendapatkan pengalaman terbaik dalam setiap penyajian.
+      </p>
+          <ul class="nilai-list">
+            <li>
+          <span class="no">01</span>
+          <div>
+            <strong>Bahan Baku Berkualitas</strong>
+            <span>Menggunakan bahan baku pilihan yang segar dan diproses setiap hari.</span>
+          </div>
+        </li>
+            <li><span class="no">02</span>
+              <div><strong>Higienis & tersertifikasi</strong><span>Dapur produksi memiliki sertifikat laik higiene dari
+                  Dinas Kesehatan.</span></div>
+           <li>
+          <span class="no">03</span>
+          <div>
+            <strong>Pelayanan Profesional</strong>
+            <span>Tim kami siap membantu mulai dari konsultasi menu hingga pengiriman tepat waktu.</span>
+          </div>
+        </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- MENU PAKET -->
+    <section class="menu" id="menu">
+      <div class="wadah">
+        <div class="menu-kepala">
+          <div>
+            <p class="eyebrow">Paket Menu</p>
+            <h2>Pilih paket, atau <span class="aksen-miring">racik sendiri</span> di kalkulator.</h2>
+          </div>
+          <p>Semua harga per porsi, sudah termasuk kemasan. Minimum pemesanan berbeda tiap paket — cek keterangan pada
+            kartu.</p>
+        </div>
+        <div class="kartu-grid">
+
+          <div class="kartu-paket">
+            <span class="tag">Populer</span>
+            <h3>Nasi Box Harian</h3>
+            <p class="harga">Rp 25.000 <span>/ porsi, min. 20</span></p>
+            <ul>
+              <li>Nasi putih</li>
+              <li>Ayam bakar bumbu bali</li>
+              <li>Sayur asem</li>
+              <li>Sambal & lalapan</li>
+              <li>Kerupuk & buah potong</li>
+            </ul>
+            <button class="btn" onclick="pilihDariKartu('nasibox')">Pilih Paket Ini</button>
+          </div>
+
+          <div class="kartu-paket">
+            <span class="tag">Untuk 50+ tamu</span>
+            <h3>Prasmanan Sederhana</h3>
+            <p class="harga">Rp 45.000 <span>/ porsi, min. 50</span></p>
+            <ul>
+              <li>Nasi putih & nasi kuning</li>
+              <li>2 lauk pilihan (ayam/tahu-tempe)</li>
+              <li>Sayur & sambal</li>
+              <li>Kerupuk, buah, es teh manis</li>
+            </ul>
+            <button class="btn" onclick="pilihDariKartu('prasmanan-sederhana')">Pilih Paket Ini</button>
+          </div>
+
+          <div class="kartu-paket">
+            <span class="tag">Rekomendasi</span>
+            <h3>Prasmanan Premium</h3>
+            <p class="harga">Rp 75.000 <span>/ porsi, min. 50</span></p>
+            <ul>
+              <li>Nasi putih & nasi kuning</li>
+              <li>3 lauk termasuk daging sapi/seafood</li>
+              <li>Sayur, sambal, kerupuk</li>
+              <li>Dessert & minuman segar</li>
+            </ul>
+            <button class="btn" onclick="pilihDariKartu('prasmanan-premium')">Pilih Paket Ini</button>
+          </div>
+
+          <div class="kartu-paket">
+            <span class="tag">Rapat & seminar</span>
+            <h3>Snack Box</h3>
+            <p class="harga">Rp 15.000 <span>/ porsi, min. 30</span></p>
+            <ul>
+              <li>3 jenis kue/snack</li>
+              <li>Air mineral gelas</li>
+              <li>Kemasan box rapi</li>
+            </ul>
+            <button class="btn" onclick="pilihDariKartu('snackbox')">Pilih Paket Ini</button>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- KALKULATOR -->
+    <section class="kalkulator" id="kalkulator">
+      <div class="wadah">
+        <p class="eyebrow">Kalkulator Pesanan</p>
+        <h2>
+          Simulasikan <span class="aksen-miring">kebutuhan catering</span><br>
+           Anda.
+        </h2>
+
+        <div class="kal-grid">
+          <div class="kal-form">
+            <div class="field">
+              <label for="paketSelect">Pilih paket</label>
+              <select id="paketSelect">
+                <option value="nasibox">Nasi Box Harian — Rp 25.000</option>
+                <option value="prasmanan-sederhana">Prasmanan Sederhana — Rp 45.000</option>
+                <option value="prasmanan-premium">Prasmanan Premium — Rp 75.000</option>
+                <option value="snackbox">Snack Box — Rp 15.000</option>
+                <option value="tumpeng">Nasi Tumpeng (15–20 org) — Rp 350.000</option>
+              </select>
+            </div>
+            <div class="field-baris">
+              <div class="field">
+                <label for="jumlahPorsi">Jumlah porsi</label>
+                <input type="number" id="jumlahPorsi" min="1" value="50">
+              </div>
+              <div class="field">
+                <label for="tanggalAcara">Tanggal acara</label>
+                <input type="date" id="tanggalAcara">
+              </div>
+            </div>
+            <button class="btn" id="tambahBtn">Hitung Estimasi</button>
+            <p style="font-size:0.82rem;color:rgba(250,243,226,0.6);margin:0;">Bisa gabungkan beberapa paket sekaligus,
+              misalnya nasi box + snack box.</p>
+          </div>
+
+          <div class="struk">
+            <p class="struk-judul">SIMULASI ANGGARAN</p>
+            <p class="struk-sub">— estimasi pesanan —</p>
+            <div class="struk-garis"></div>
+            <div id="strukList">
+              <p class="struk-kosong">Belum ada item. Tambahkan paket di sebelah kiri.</p>
+            </div>
+            <div class="struk-garis"></div>
+            <div class="struk-total"><span>TOTAL</span><span id="strukTotal">Rp 0</span></div>
+            <a href="#" id="waBtn" class="btn" target="_blank" rel="noopener">💬 Kirim Estimasi ke WhatsApp</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- MITRA -->
+    <section class="mitra" id="mitra">
+      <div class="wadah">
+        <p class="eyebrow">Mitra Kami</p>
+        <h2>
+          Dipercaya oleh
+          <span class="aksen-miring">Perusahaan Terbaik</span>
+        </h2>
+
+        <p class="mitra-deskripsi">
+          Ayam Merak telah dipercaya sebagai penyedia layanan catering
+          bagi perusahaan dengan mengutamakan kualitas makanan,
+          kebersihan, dan ketepatan waktu.
+        </p>
+
+        <div class="mitra-grid">
+          <!-- Mitra 1 -->
+          <div class="mitra-item">
+            <img src="akasha.png" alt="PT Akasha Wira International">
+
+            <h3>PT Akasha Wira International Tbk</h3>
+
+            <span>Mitra Ayam Merak</span>
+
+            <p>
+              Penyedia layanan catering bagi karyawan dan kegiatan perusahaan.
+            </p>
+
+          </div>
+
+          <!-- Mitra 2 -->
+          <div class="mitra-item">
+            <img src="otsuka.png" alt="PT Amerta Indah Otsuka">
+
+            <h3>PT Amerta Indah Otsuka</h3>
+
+            <span>Mitra Ayam Merak</span>
+
+            <p>
+              Penyedia layanan catering bagi karyawan dan kegiatan perusahaan.
+            </p>
+          </div>
+
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="faq" id="faq">
+
+      <div class="wadah">
+
+        <p class="eyebrow">PERTANYAAN UMUM</p>
+
+        <h2>
+          Frequently Asked
+          <span class="aksen-miring">Questions</span>
+        </h2>
+
+        <p class="sub">
+          Temukan jawaban atas pertanyaan yang paling sering diajukan mengenai layanan catering Ayam Merak.
+        </p>
+
+        <div class="faq-list">
+
+          <div class="faq-item">
+            <button class="faq-question">
+              Berapa minimal pemesanan?
+              <span>+</span>
+            </button>
+
+            <div class="faq-answer">
+              <p>
+                Minimal pemesanan dapat disesuaikan dengan jenis layanan.
+                Silakan hubungi tim kami untuk informasi lebih lanjut.
+              </p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question">
+              Apakah menu bisa disesuaikan?
+              <span>+</span>
+            </button>
+
+            <div class="faq-answer">
+              <p>
+                Ya. Kami menyediakan pilihan menu yang fleksibel sesuai kebutuhan perusahaan maupun acara Anda.
+              </p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question">
+              Apakah melayani catering perusahaan?
+              <span>+</span>
+            </button>
+
+            <div class="faq-answer">
+              <p>
+                Ya. Kami melayani catering harian perusahaan, meeting, training, seminar, hingga berbagai event.
+              </p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question">
+              Bagaimana cara melakukan pemesanan?
+              <span>+</span>
+            </button>
+
+            <div class="faq-answer">
+              <p>
+                Cukup hubungi kami melalui WhatsApp, kemudian tim kami akan membantu proses konsultasi hingga penawaran.
+              </p>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+    
+
+    <!-- KONTAK -->
+    <section class="kontak" id="kontak">
+      <div class="wadah kontak-grid">
+        <div class="kontak-info">
+          <p class="eyebrow">Kontak</p>
+          <h2>Siap bantu rencanakan<br><span class="aksen-miring">acara Anda.</span></h2>
+          <p>Konsultasi menu, jumlah porsi, atau jadwal pengiriman, tim kami balas dalam 1 jam pada jam kerja.</p>
+          <ul class="info-list">
+            <li><span class="ikon">Tel</span> 0813-1609-4428</li>
+            <li><span class="ikon">Mail</span> ayammerakbersama@gmail.com</li>
+            <li><span class="ikon">Lok</span> Cicurug, Sukabumi 43359 </li>
+            <li><span class="ikon">Jam</span> Senin–Sabtu, 08.00–16.00</li>
+          </ul>
+        </div>
+        <form class="form-kontak" id="formKontak">
+          <input type="text" placeholder="Nama Anda" required>
+          <input type="tel" placeholder="Nomor WhatsApp" required>
+          <textarea placeholder="Ceritakan acara Anda: tanggal, jumlah tamu, lokasi..." required></textarea>
+          <button type="submit" class="btn btn-utama">Kirim Pesan</button>
+        </form>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="wadah footer-baris">
+      <p>© 2026 Ayam Merak Catering. Semua hak cipta dilindungi.</p>
+      <p>Dibuat dengan ❤ dari Sukabumi.</p>
+    </div>
+  </footer>
+
+  <script>
+    // ---------- DATA PAKET ----------
+    const PAKET = {
+      'nasibox': { nama: 'Nasi Box Harian', harga: 25000, min: 20 },
+      'prasmanan-sederhana': { nama: 'Prasmanan Sederhana', harga: 45000, min: 50 },
+      'prasmanan-premium': { nama: 'Prasmanan Premium', harga: 75000, min: 50 },
+      'snackbox': { nama: 'Snack Box', harga: 15000, min: 30 },
+      'tumpeng': { nama: 'Nasi Tumpeng', harga: 350000, min: 1 },
+    };
+    const NOMOR_WA = '081316094428';
+
+    let pesanan = []; // { id, paketKey, porsi }
+    let idCounter = 1;
+
+    const paketSelect = document.getElementById('paketSelect');
+    const jumlahPorsi = document.getElementById('jumlahPorsi');
+    const tanggalAcara = document.getElementById('tanggalAcara');
+    const tambahBtn = document.getElementById('tambahBtn');
+    const strukList = document.getElementById('strukList');
+    const strukTotal = document.getElementById('strukTotal');
+    const waBtn = document.getElementById('waBtn');
+
+    function formatRupiah(angka) {
+      return 'Rp ' + angka.toLocaleString('id-ID');
+    }
+
+    function pilihDariKartu(key) {
+      paketSelect.value = key;
+      document.getElementById('kalkulator').scrollIntoView({ behavior: 'smooth', block: 'start' });
+      jumlahPorsi.focus();
+    }
+    window.pilihDariKartu = pilihDariKartu;
+
+    function renderStruk() {
+      if (pesanan.length === 0) {
+        strukList.innerHTML = '<p class="struk-kosong">Belum ada item. Tambahkan paket di sebelah kiri.</p>';
+        strukTotal.textContent = formatRupiah(0);
+        waBtn.setAttribute('aria-disabled', 'true');
+        waBtn.style.pointerEvents = 'none';
+        waBtn.style.opacity = '0.45';
+        return;
+      }
+      let total = 0;
+      strukList.innerHTML = pesanan.map(item => {
+        const p = PAKET[item.paketKey];
+        const subtotal = p.harga * item.porsi;
+        total += subtotal;
+        return `<div class="struk-item">
+        <span>${p.nama} × ${item.porsi}<br><button class="hapus" onclick="hapusItem(${item.id})">hapus</button></span>
+        <span>${formatRupiah(subtotal)}</span>
+      </div>`;
+      }).join('');
+      strukTotal.textContent = formatRupiah(total);
+      waBtn.style.pointerEvents = 'auto';
+      waBtn.style.opacity = '1';
+
+      // Build WhatsApp message
+      let pesan = 'Halo Ayam Merak, saya ingin memesan:%0A';
+      pesanan.forEach(item => {
+        const p = PAKET[item.paketKey];
+        pesan += `- ${p.nama} x ${item.porsi} porsi (${formatRupiah(p.harga * item.porsi)})%0A`;
+      });
+      pesan += `Total estimasi: ${formatRupiah(total)}%0A`;
+      if (tanggalAcara.value) {
+        pesan += `Tanggal acara: ${tanggalAcara.value}%0A`;
+      }
+      pesan += 'Mohon info ketersediaan dan langkah selanjutnya. Terima kasih!';
+      waBtn.href = `https://wa.me/${+6281316094428}?text=${pesan}`;
+    }
+
+    function hapusItem(id) {
+      pesanan = pesanan.filter(item => item.id !== id);
+      renderStruk();
+    }
+    window.hapusItem = hapusItem;
+
+    tambahBtn.addEventListener('click', () => {
+      const key = paketSelect.value;
+      const porsi = Math.max(1, parseInt(jumlahPorsi.value, 10) || 1);
+      const paket = PAKET[key];
+      if (porsi < paket.min) {
+        alert(`Paket "${paket.nama}" memiliki minimum pemesanan ${paket.min} porsi. Silakan sesuaikan jumlah.`);
+        return;
+      }
+      pesanan.push({ id: idCounter++, paketKey: key, porsi });
+      renderStruk();
+    });
+
+    renderStruk();
+
+    // ---------- MOBILE MENU ----------
+    const hamburger = document.getElementById('hamburger');
+    const navTautan = document.querySelector('.nav-tautan');
+    hamburger.addEventListener('click', () => {
+      const terbuka = navTautan.style.display === 'flex';
+      navTautan.style.display = terbuka ? 'none' : 'flex';
+      navTautan.style.cssText += terbuka ? '' : 'position:absolute;top:64px;left:0;right:0;flex-direction:column;background:#faf3e2;padding:20px 28px;gap:18px;border-bottom:1px solid rgba(34,28,20,0.12);';
+    });
+
+    // ---------- FORM KONTAK ----------
+    document.getElementById('formKontak').addEventListener('submit', function (e) {
+      e.preventDefault();
+      alert('Terima kasih! Pesan Anda telah tercatat. Tim kami akan menghubungi Anda melalui WhatsApp dalam 1 jam kerja.');
+      this.reset();
+    });
+    // FAQ Accordion
+
+    const faqQuestions = document.querySelectorAll(".faq-question");
+
+    faqQuestions.forEach(question => {
+
+      question.addEventListener("click", () => {
+
+        const answer = question.nextElementSibling;
+        const icon = question.querySelector("span");
+
+        // kalau sudah terbuka → tutup
+        if (answer.style.maxHeight) {
+
+          answer.style.maxHeight = null;
+          icon.textContent = "+";
+
+        } else {
+
+          // tutup semua FAQ lain
+          document.querySelectorAll(".faq-answer").forEach(item => {
+            item.style.maxHeight = null;
+          });
+
+          document.querySelectorAll(".faq-question span").forEach(item => {
+            item.textContent = "+";
+          });
+
+          // buka FAQ yang diklik
+          answer.style.maxHeight = answer.scrollHeight + "px";
+          icon.textContent = "−";
+        }
+
+      });
+
+    });
+  </script>
+</body>
+
+</html>
